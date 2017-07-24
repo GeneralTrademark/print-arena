@@ -1,0 +1,375 @@
+
+*{
+  font-family: Arial, serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: all 0.5s ease;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: circle;
+}
+
+li{
+  margin-left: 1rem;
+}
+
+body{
+  background-color: #f1f1f1;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   justify-content: center;
+   counter-reset: section;                     /* Set a counter named 'section', and it`s initial value is 0. */
+}
+
+.counter::after {
+  counter-increment: section;                 /* Increment the value of section counter by 1 */
+  content: counter(section);                  /* Display the value of section counter */
+}
+
+.counter{
+  text-align: center;
+  bottom: 10px;
+  position: absolute;
+  width: 100%;
+  color: #666666;
+  font-size: 8pt;
+}
+
+.loader{
+  /*flex: 1;*/
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet{
+  width: 135.5mm;
+  height: 209.55mm;
+  flex: 1;
+  margin: 0;
+  background-color: white;
+  margin-bottom: 10px;
+  position: relative;
+  box-sizing: border-box;
+  page-break-after: always;
+}
+
+.sheet.removed {
+  display: none;
+}
+
+.wrap{
+  padding-top: 140px;
+}
+
+header{
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  padding: 1rem;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header > * {
+  flex: 0 0 auto;
+}
+
+.formTitle{
+  padding-right: 1rem;
+}
+
+.formBox{
+  width: 15vw;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.formButton{
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.printButton{
+  background-color: #17ac10;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-right: 35px;
+}
+
+.itemText{
+  max-width: 120mm;
+  width: 90%;
+  padding: 10pt;
+  padding-top: 20pt;
+  padding-bottom: 40pt;
+  background-color: white;
+  flex: 0 0 auto;
+}
+
+.itemText p {
+  margin: 0;
+  font-size: 8pt;
+  letter-spacing: .3px;
+  color: #cccccc;
+}
+
+.itemText a {
+  text-decoration: none;
+  margin: 0;
+  font-size: 8pt;
+  letter-spacing: .3px;
+}
+
+.image{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+img{
+  max-width: 100%;
+  max-height: 90%;
+}
+
+a{
+  word-wrap: break-word;
+  opacity: .8;
+}
+
+.text{
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    max-width: 80%;
+    line-height: 1.4;
+    padding-left: 25pt;
+    padding-top: 25pt;
+    hyphens: none;
+}
+
+.titlePage{
+  /*display: inline-block;*/
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #666666;
+  width: 209mm;
+  transform: rotate(90deg);
+  transform-origin: bottom left;
+  /*margin-left: 380px;*/
+  margin-left: 40px;
+  margin-top: -50px;
+  line-height: 1.2;
+}
+
+.arena{
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #9B9B9B;
+}
+
+.slash{
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+
+.channelTitle{
+  font-size: 2.5rem;
+  color: #17ac10;
+}
+
+.infoPage{
+  padding: 30px;
+}
+
+.infoPage p {
+  line-height: 1.2;
+  padding: 0;
+  margin: 0;
+}
+
+.infoPage ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+}
+
+.infoPage li{
+  margin: 0;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+.indexPage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  height: 80%;
+}
+
+.indexPage ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+}
+
+.indexPage li{
+  margin: 0;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+.colophon{
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+
+.el{
+  color: #9B9B9B;
+  padding-right: 5px;
+}
+
+.descUrl{
+  color: #17ac10;
+}
+
+.lastMark{
+  flex: 0 0 auto;
+  height: 46px;
+  width: 46px;
+}
+
+.mark{
+  /*background-size: 46px 46px;*/
+  /*background-repeat: no-repeat;*/
+  height: 46px;
+  width: 46px;
+  margin-right: 0px;
+  position: absolute;
+  bottom: 30px;
+  /*right: 40px;*/
+  left: 40px;
+}
+
+.alpha{
+  background-color: white;
+  position: fixed;
+  left: 0;
+  max-width: 7cm;
+  padding: 1rem;
+  top: 20vh;
+  /*padding-top: 5rem;*/
+  font-weight: light;
+  /*color: #ccc;*/
+  line-height: 1.2;
+  z-index: 999999;
+  /*border: 1px solid #ccc;*/
+  -webkit-box-shadow: 0px 9px 61px 0px rgba(0,0,0,0.04);
+-moz-box-shadow: 0px 9px 61px 0px rgba(0,0,0,0.04);
+box-shadow: 0px 9px 61px 0px rgba(0,0,0,0.04);
+  color: #9D9D9D;
+}
+
+.alpha.closed{
+  display: none;
+}
+
+.alpha ul{
+  padding-bottom: 2rem;
+  font-size: 12px;
+}
+.alpha li{
+    color: #000;
+  padding-top: .5rem;
+  font-size: 12px;
+}
+
+.alpha p{
+  /*padding-top: .2rem;*/
+  font-size: 12px;
+}
+
+.alpha a{
+  /*padding-top: .2rem;*/
+  font-size: 12px;
+}
+
+.close{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.deletePage{
+  position: absolute;
+  right: -60px;
+  padding: 10px;
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.deletePage:hover{
+  color: #000;
+}
+
+@page {
+  size: 130.175mm 209.55mm;
+}
+
+@media print {
+  @page { margin: 0 }
+  header{
+    display: none;
+  }
+  .alpha{
+    display: none;
+  }
+  .wrap{
+    padding-top: 0px;
+  }
+  .sheet{
+    margin: 0;
+    flex: none;
+    page-break-after: always;
+    overflow: hidden;
+  }
+  .titlePage{
+    color: #f1f1f1;
+  }
+
+  .arena{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #9b9b9b;
+  }
+  .sheet.removed {
+    display: none;
+  }
+}
