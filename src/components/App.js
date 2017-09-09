@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import config from './config'
+import config from '../static/config'
 import ImageLayout from './ImageLayout'
 import TextLayout from './TextLayout'
+import LinkLayout from './LinkLayout'
 import {configureUrlQuery, addUrlProps, replaceUrlQuery, UrlQueryParamTypes } from 'react-url-query'
 import './App.css';
 
-import icon from './arenamark.svg';
+import icon from '../static/arenamark.svg';
 
 const urlPropsQueryConfig = {
   URICurrentChannel: { type: UrlQueryParamTypes.string, queryParam: 'ch' },
@@ -21,7 +22,7 @@ class App extends Component {
     this.state = {
       value: '',
       channel: !this.props.URICurrentChannel ? 'syn' : this.props.URICurrentChannel,
-      // url: 'https://www.are.na/callil-capuozzo/syn',
+      url: 'https://www.are.na/emma-rae-norton/rejuvenate-the-net',
       channelName: '',
       chConnections: [],
       channelInfo: {},
@@ -61,8 +62,9 @@ class App extends Component {
     })
     const getItems = fetch(`${config.apiBase}/channels/${channel}/contents`)
     getItems.then(resp => resp.json()).then(response => {
+
       let items = response.contents.filter(function(item){
-        return item.class === 'Image' || item.class === 'Text'
+        return item.class === 'Image' || item.class === 'Text' || item.class === 'Link'
       })
 
       let itemUrls = items.map((item) => {
@@ -70,6 +72,8 @@ class App extends Component {
           return item = {url: item.image.original.url, title: item.title, id: item.id, type: item.class}
         } else if (item.class === 'Text') {
           return item = {content: item.content, title: item.title, id: item.id, type: item.class}
+        } else if (item.class === 'Link') {
+          return item = {url: item.source.url, image: item.image.original.url, title: item.title, id: item.id, type: item.class}
         } else {
           return undefined
         }
@@ -84,7 +88,6 @@ class App extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.value)
     if (this.state.value !== this.state.url) {
       let strUrl = this.state.value;
       let path = strUrl.replace(/^https?:\/\//, '').split('/');
@@ -148,6 +151,14 @@ class App extends Component {
           <section key={item.id} className='sheet' >
             <div onClick={(e) => this.removeItem(item)} title="Remove this page" className='deletePage'>✕</div>
             <TextLayout className='text' content={item.content} id={item.id} title={item.title}/>
+            <div className='counter'></div>
+          </section>
+        )
+      } else if (item.type === 'Link') {
+        return (
+          <section key={item.id} className='sheet' >
+            <div onClick={(e) => this.removeItem(item)} title="Remove this page" className='deletePage'>✕</div>
+            <LinkLayout className='text' id={item.id} title={item.title} url={item.url} image={item.image} />
             <div className='counter'></div>
           </section>
         )
