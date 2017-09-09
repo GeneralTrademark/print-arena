@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import config from './config'
+import config from '../static/config'
 import ImageLayout from './ImageLayout'
 import TextLayout from './TextLayout'
 import LinkLayout from './LinkLayout'
 import {configureUrlQuery, addUrlProps, replaceUrlQuery, UrlQueryParamTypes } from 'react-url-query'
 import './App.css';
 
-import icon from './arenamark.svg';
+import icon from '../static/arenamark.svg';
 
 const urlPropsQueryConfig = {
   URICurrentChannel: { type: UrlQueryParamTypes.string, queryParam: 'ch' },
@@ -73,7 +73,7 @@ class App extends Component {
         } else if (item.class === 'Text') {
           return item = {content: item.content, title: item.title, id: item.id, type: item.class}
         } else if (item.class === 'Link') {
-          return item = {url: item.source.url, title: item.title, id: item.id, type: item.class}
+          return item = {url: item.source.url, image: item.image.original.url, title: item.title, id: item.id, type: item.class}
         } else {
           return undefined
         }
@@ -158,7 +158,7 @@ class App extends Component {
         return (
           <section key={item.id} className='sheet' >
             <div onClick={(e) => this.removeItem(item)} title="Remove this page" className='deletePage'>✕</div>
-            <LinkLayout className='text' id={item.id} title={item.title} url={item.url} />
+            <LinkLayout className='text' id={item.id} title={item.title} url={item.url} image={item.image} />
             <div className='counter'></div>
           </section>
         )

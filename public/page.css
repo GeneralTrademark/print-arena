@@ -114,7 +114,7 @@ header > * {
 }
 
 .itemText{
-  max-width: 120mm;
+  max-width: 110mm;
   width: 90%;
   padding: 10pt;
   padding-top: 20pt;
@@ -199,7 +199,7 @@ a{
 }
 
 .infoPage{
-  padding: 30px;
+  padding: 50pt;
 }
 
 .infoPage p {
