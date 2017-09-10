@@ -21,8 +21,8 @@ class App extends Component {
     super(props);
     this.state = {
       value: '',
-      channel: !this.props.URICurrentChannel ? 'syn' : this.props.URICurrentChannel,
-      url: 'https://www.are.na/emma-rae-norton/rejuvenate-the-net',
+      channel: !this.props.URICurrentChannel ? 'arena-influences' : this.props.URICurrentChannel,
+      url: 'https://www.are.na/charles-broskoski/arena-influences',
       channelName: '',
       chConnections: [],
       channelInfo: {},
@@ -124,8 +124,8 @@ class App extends Component {
     }
 
     const makeExtraPages = () => {
-      console.log(this.state.pageCount)
-      console.log(this.state.pageCount % 6)
+      // console.log(this.state.pageCount)
+      // console.log(this.state.pageCount % 6)
       return(
         <div></div>
       )
@@ -171,32 +171,10 @@ class App extends Component {
 
     return (
       <div className="">
-        <div className={this.state.betaOpen ? 'alpha open' : 'alpha closed'}>
-          <div className='close' onClick={(e) => this.toggleBeta(e)}>✕</div>
-          <p>
-            <ul>
-              How this works:
-              <li>Paste an are.na ↝ channel to generate a formatted document ready to download as a pdf.</li>
-              <li>Download PDF and upload through Blurb's <a href="http://www.blurb.com/pdf_uploader_frontend/index.html">pdf to book tool.</a> </li>
-              <li>The supported format is blurb's trade book size (5x8in).</li>
-            </ul>
-
-            <ul>
-              Things in progress:
-              <li>Magazine, Tabloid, letter, A-sizes, and other blurb book sizes.</li>
-              <li>Guide to printing after downloading pdf</li>
-              <li>Inline image and text editing</li>
-              <li>Something else? message us <a href="https://twitter.com/general_bot">@general_bot</a></li>
-            </ul>
-
-            <p>This tool should be used for archiving, developing references for new projects and generating experimental books.</p>
-            <p>I made this because I wanted to print out images to put up in studio but creating boards from scratch was really annoying.</p>
-          </p>
-        </div>
         <header className='header'>
           <form onSubmit={this.handleSubmit}>
             <label>
-              <span className='formTitle'>enter are.na channel url:</span>
+              <span className='formTitle'>are.na channel url:</span>
               <input
                 className='formBox'
                 type="text"
@@ -210,9 +188,34 @@ class App extends Component {
         </header>
         {this.state.loaded ?
           <section className='wrap'>
+            <section className='sheet firstSheet'>
+              <div>
+                <ul>
+                  How this works:
+                  <li>Paste an are.na ↝ channel to generate a formatted document.</li>
+                  <li>Download PDF and upload through Blurb's <a href="http://www.blurb.com/pdf_uploader_frontend/index.html">pdf to book tool.</a> </li>
+                  <li>The supported format is blurb's trade book size (5x8in).</li>
+                </ul>
+                <br />
+                <ul>
+                  Things in progress:
+                  <li>Fixing a bunch of bugs concerning long text</li>
+                  <li>Magazine, Tabloid, letter, A-sizes, and other blurb book sizes.</li>
+                  <li>Guide to printing</li>
+                  <li>Inline image and text editing</li>
+                  <li>Something else? message us <a href="https://twitter.com/general_bot">@general_bot</a></li>
+                </ul>
+
+                <p>This tool should be used for archiving, developing references for new projects and generating experimental books.</p>
+                <p>I made this because I wanted to print out images to put up in studio but creating boards from scratch was really annoying.</p>
+                <p>To see what else has been made check out our <a href="https://www.are.na/callil-capuozzo/print-arena">are.na channel</a>.</p>
+                <br />
+                <p>This page will not be printed</p>
+              </div>
+            </section>
             <section className='sheet' >
               <div className='titlePage'>
-              <span className='arena'>Are.na <span className='slash'> / </span> </span> {this.state.user}<span className='slash'> / </span><br></br><span className='channelTitle'>{this.state.channelName}</span>
+                <span className='arena'>Are.na <span className='slash'> / </span> </span> {this.state.user}<span className='slash'> / </span><br></br><span className='channelTitle'>{this.state.channelName}</span>
               </div>
               <img alt='' className='mark' src={icon}/>
             </section>
@@ -228,8 +231,8 @@ class App extends Component {
                   <li><span className='el'>Created:</span>{this.state.channelInfo.created_at}</li>
                   <li><span className='el'>Updated:</span>{this.state.channelInfo.updated_at}</li>
                 </ul>
-                <ul>
-                  <li><span className='el'>Connections:</span></li>
+                <ul className={this.state.chConnections.length > 16 ? 'connections' : ''}>
+                  <p style={{width: '100%'}} className='el'>Connections:</p>
                   {this.state.chConnections.length > 0 ? this.state.chConnections.channels.map(makeConnection) : 'No connections'}
                 </ul>
               </div>
@@ -240,8 +243,8 @@ class App extends Component {
               <div className='indexPage'>
                 <img alt='' className='lastMark' src={icon}/>
                 <ul className='colophon'>
-                  <li><span className='el'>print are.na v0.1</span></li>
-                  <li><span className='el'>built by generaltrademark.com</span></li>
+                  <li><span className='el'>print are.na v0.2</span></li>
+                  <li><span className='el'>built by <a href="gtm.nyc">general trademark</a></span></li>
                   <li><span className='el'>thanks to http://are.na</span></li>
                 </ul>
               </div>

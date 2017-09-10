@@ -2,8 +2,11 @@
 *{
   font-family: Arial, serif;
   font-size: 16px;
-  letter-spacing: 1px;
-  transition: all 0.5s ease;
+  line-height: 1.3;
+  letter-spacing: .005rem;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: opacity 0.5s ease;
 }
 
 ul{
@@ -16,14 +19,26 @@ li{
   margin-left: 1rem;
 }
 
+.small p{
+  font-size: 12px;
+}
+
+.mini p{
+    font-size: 10px;
+}
+
+.medium p{
+    font-size: 14px;
+}
+
 body{
   background-color: #f1f1f1;
   font-size: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-   justify-content: center;
-   counter-reset: section;                     /* Set a counter named 'section', and it`s initial value is 0. */
+  justify-content: center;
+  counter-reset: section;                     /* Set a counter named 'section', and it`s initial value is 0. */
 }
 
 .counter::after {
@@ -36,7 +51,7 @@ body{
   bottom: 10px;
   position: absolute;
   width: 100%;
-  color: #666666;
+  color: #5f5f5f;
   font-size: 8pt;
 }
 
@@ -51,35 +66,55 @@ body{
 }
 
 .sheet{
-  width: 135.5mm;
-  height: 209.55mm;
-  flex: 1;
-  margin: 0;
   background-color: white;
-  margin-bottom: 10px;
   position: relative;
   box-sizing: border-box;
   page-break-after: always;
+  /*border: 1px solid rgba(0, 0, 0, 0.05);*/
+  padding: 0;
+  margin: 1px;
+  width: 135.5mm;
+  height: 209.55mm;
+  margin-bottom: 20px;
+  /*box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);*/
+  overflow: hidden;
 }
 
 .sheet.removed {
   display: none;
 }
 
+.firstSheet{
+  background-color: rgba(255,255,255,0.3);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0);
+  padding: 40pt;
+  color: #5f5f5f;
+  outline: none;
+}
+
 .wrap{
   padding-top: 140px;
+  max-width: 276mm;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 header{
   position: fixed;
   z-index: 999;
   width: 100%;
-  padding: 1rem;
-  top: 0;
+  padding: .25rem;
   left: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  box-sizing: border-box;
+  /*font-weight: bolder;*/
+  color: #5f5f5f;
+  /*background-color: #f1f1f1;*/
 }
 
 header > * {
@@ -88,29 +123,40 @@ header > * {
 
 .formTitle{
   padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 .formBox{
-  width: 15vw;
+  width: 30vw;
   border: none;
   padding: 10px;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
 }
 
 .formButton{
-  background-color: black;
+  background-color: #4F4F4F;
   color: white;
   border: none;
   padding: 10px;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
 }
+
+.formButton:hover{
+  background-color: black;
+}
+
 
 .printButton{
   background-color: #17ac10;
   color: white;
   border: none;
   padding: 10px;
-  margin-right: 35px;
+  width: 100px;
+  cursor: pointer;
+  /*margin-right: 35px;*/
+}
+.printButton:hover{
+  background-color: #14A10D;
 }
 
 .itemText{
@@ -127,7 +173,7 @@ header > * {
   margin: 0;
   font-size: 8pt;
   letter-spacing: .3px;
-  color: #cccccc;
+  color: #5f5f5f;
 }
 
 .itemText a {
@@ -158,14 +204,16 @@ a{
 }
 
 .text{
-    margin: 0;
-    padding: 0;
-    font-size: 1.2rem;
-    max-width: 80%;
-    line-height: 1.4;
-    padding-left: 25pt;
-    padding-top: 25pt;
-    hyphens: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  letter-spacing: .005rem;
+  max-width: 75%;
+  line-height: 1.4;
+  padding-left: 40pt;
+  padding-top: 40pt;
+  hyphens: none;
 }
 
 .titlePage{
@@ -174,11 +222,13 @@ a{
   font-weight: bold;
   color: #666666;
   width: 209mm;
-  transform: rotate(90deg);
-  transform-origin: bottom left;
-  /*margin-left: 380px;*/
-  margin-left: 40px;
-  margin-top: -50px;
+  transform: translate(-50%,-0%) rotate(90deg);
+  transform-origin: 50% 50%;
+  position: absolute;
+  text-align: left;
+  white-space: nowrap;
+  top: 410px;
+  left: 90px;
   line-height: 1.2;
 }
 
@@ -199,7 +249,7 @@ a{
 }
 
 .infoPage{
-  padding: 50pt;
+  padding: 40pt;
 }
 
 .infoPage p {
@@ -215,10 +265,21 @@ a{
   padding-top: 20px;
 }
 
+.connections{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.connectoins li{
+  flex: 0 0 50%;
+}
+
 .infoPage li{
   margin: 0;
   padding: 0;
   padding-bottom: 5px;
+  flex: 0 0 50%;
 }
 
 .indexPage{
@@ -348,14 +409,20 @@ box-shadow: 0px 9px 61px 0px rgba(0,0,0,0.04);
   header{
     display: none;
   }
+  .firstSheet{
+    display: none;
+  }
   .alpha{
     display: none;
   }
   .wrap{
     padding-top: 0px;
+    display: block;
   }
   .sheet{
     margin: 0;
+    width: 135.5mm;
+    height: 209.55mm;
     flex: none;
     page-break-after: always;
     overflow: hidden;
@@ -363,7 +430,9 @@ box-shadow: 0px 9px 61px 0px rgba(0,0,0,0.04);
   .titlePage{
     color: #f1f1f1;
   }
-
+  .text{
+      margin-top: 80pt;
+  }
   .arena{
     font-size: 2.5rem;
     font-weight: bold;
