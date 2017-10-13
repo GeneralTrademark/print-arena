@@ -1,0 +1,88 @@
+{
+  "name": "GeneralTrademark/print-arena",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "Print Arena",
+  "branch": "",
+  "style": {
+    "name": "Swiss",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/SwissHeader",
+      "article": "article/SwissArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+    "heading": {
+      "fontWeight": 700,
+      "letterSpacing": "-0.01em"
+    },
+    "layout": {
+      "fluid": true
+    },
+    "colors": {
+      "text": "#000",
+      "background": "#fff",
+      "primary": "#05a",
+      "secondary": "#444",
+      "highlight": "#f30",
+      "border": "#ccc",
+      "muted": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/GeneralTrademark/print-arena",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/printv2",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "print-arena",
+      "subhead": "Make it easier to print out arena channels for inspo walls and stuff...",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "print-arena: Make it easier to print out arena channels for inspo walls and stuff...",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "GeneralTrademark",
+          "repo": "print-arena"
+        }
+      ],
+      "text": "v0.1.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<p>How this works:\nPaste an are.na &#x219D; channel to generate a formatted document ready to download as a pdf.\nDownload PDF and upload through Blurb&apos;s <a href=\"http://www.blurb.com/pdf_uploader_frontend/index.html\">pdf to book tool.</a>\nThe supported format is blurb&apos;s trade book size (5x8in).</p>\n<p>Things in progress:\nMagazine, Tabloid, letter, A-sizes, and other blurb book sizes.\nGuide to printing after downloading pdf\nInline image and text editing\nSomething else? message us <a href=\"https://twitter.com/general_bot\">@general_bot</a></p>\n<p>This tool should be used for archiving, developing references for new projects and generating experimental books.\nI made this because I wanted to print out images to put up in studio but creating boards from scratch was really annoying.</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/GeneralTrademark/print-arena",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/GeneralTrademark",
+          "text": "GeneralTrademark"
+        }
+      ]
+    }
+  ]
+}
